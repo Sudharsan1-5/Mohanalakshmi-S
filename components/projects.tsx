@@ -50,46 +50,65 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 px-4 bg-muted/30">
+    <section id="projects" className="py-12 md:py-24 px-4 bg-muted/30 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-balance">Projects</h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Demonstrating capability through measurable outcomes
-        </p>
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
+            Projects
+          </h2>
+          <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto px-4">
+            Swipe to explore my work — demonstrating capability through measurable outcomes
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* CAROUSEL LOGIC:
+            - Mobile: flex-nowrap + overflow-x-auto (Carousel)
+            - Desktop: lg:grid (Standard Grid)
+        */}
+        <div className="flex flex-nowrap overflow-x-auto gap-4 pb-8 snap-x snap-mandatory hide-scrollbar lg:grid lg:grid-cols-2 lg:gap-8 lg:pb-0 lg:overflow-visible">
           {projects.map((project) => (
-            <Card key={project.title} className="p-6 space-y-4 hover:shadow-lg transition-all">
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold text-balance">{project.title}</h3>
-
-                <div className="flex flex-wrap gap-2">
+            <Card 
+              key={project.title} 
+              className="flex flex-col flex-none w-[85vw] sm:w-[60vw] lg:w-full snap-center h-full p-5 md:p-6 hover:shadow-md transition-shadow duration-300 border-border/50"
+            >
+              <div className="mb-4">
+                <h3 className="text-lg md:text-xl font-bold mb-3 leading-tight min-h-[3rem]">
+                  {project.title}
+                </h3>
+                <div className="flex flex-wrap gap-1.5">
                   {project.tools.map((tool) => (
-                    <Badge key={tool} variant="outline" className="text-xs">
+                    <Badge 
+                      key={tool} 
+                      variant="secondary" 
+                      className="text-[10px] md:text-xs font-medium px-2 py-0"
+                    >
                       {tool}
                     </Badge>
                   ))}
                 </div>
               </div>
 
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                {project.description.map((item, index) => (
-                  <li key={index} className="flex gap-2 leading-relaxed">
-                    <span className="text-primary mt-1.5">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex-grow">
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {project.description.map((item, index) => (
+                    <li key={index} className="flex gap-2 items-start leading-snug">
+                      <span className="text-primary font-bold mt-0.5">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-              <div className="flex gap-2 pt-2">
-                <Button asChild size="sm" variant="outline" className="gap-2 bg-transparent">
+              <div className="flex flex-wrap gap-3 pt-6 mt-4 border-t border-border/40">
+                <Button asChild size="sm" variant="outline" className="h-9 text-xs md:text-sm gap-2">
                   <a href={project.github} target="_blank" rel="noopener noreferrer">
                     <Github className="w-4 h-4" />
                     GitHub
                   </a>
                 </Button>
-                {project.demo && (
-                  <Button asChild size="sm" variant="outline" className="gap-2 bg-transparent">
+                
+                {project.demo && project.demo !== "#" && (
+                  <Button asChild size="sm" variant="outline" className="h-9 text-xs md:text-sm gap-2">
                     <a href={project.demo} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4" />
                       Demo
@@ -99,6 +118,13 @@ export function Projects() {
               </div>
             </Card>
           ))}
+        </div>
+
+        {/* Mobile Swipe Indicator */}
+        <div className="flex justify-center gap-1.5 mt-2 lg:hidden">
+            {projects.map((_, i) => (
+                <div key={i} className="w-1.5 h-1.5 rounded-full bg-muted-foreground/30" />
+            ))}
         </div>
       </div>
     </section>
