@@ -51,12 +51,12 @@ export function Hero() {
           {/* Social Icons - Grouped row on mobile */}
           <div className="flex gap-3 mt-2 sm:mt-0">
             <Button asChild size="icon" variant="outline" className="h-11 w-11 rounded-full">
-              <a href="https://linkedin.com/in/mohanalakshmi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://linkedin.com/in/mohanalakshmi-s-09m" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
             </Button>
             <Button asChild size="icon" variant="outline" className="h-11 w-11 rounded-full">
-              <a href="https://github.com/mohanalakshmi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/Monikakuti" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="w-5 h-5" />
               </a>
             </Button>

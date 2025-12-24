@@ -6,26 +6,26 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "mohanalakshmi@email.com",
-    href: "mailto:mohanalakshmi@email.com",
+    value: "monikasundar09@gmail.com",
+    href: "mailto:monikasundar09@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+91 XXXXX XXXXX",
-    href: "tel:+91XXXXXXXXXX",
+    value: "+91 8248931923",
+    href: "tel:+918248931923",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "linkedin/mohanalakshmi",
-    href: "https://linkedin.com/in/mohanalakshmi",
+    value: "linkedin.com/in/mohanalakshmi-s-09mi",
+    href: "https://linkedin.com/in/mohanalakshmi-s-09m",
   },
   {
     icon: Github,
     label: "GitHub",
-    value: "github/mohanalakshmi",
-    href: "https://github.com/mohanalakshmi",
+    value: "github.com/Monikakuti",
+    href: "https://github.com/Monikakuti",
   },
 ]
 
