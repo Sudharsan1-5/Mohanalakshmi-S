@@ -1,103 +1,116 @@
 import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Github, ExternalLink } from "lucide-react"
+import { Github, ExternalLink, BarChart3, BrainCircuit, Database, LineChart } from "lucide-react"
 
 const projects = [
   {
-    title: "Root Cause & Impact Analysis Dashboard",
+    title: "Root Cause & Impact Analysis",
     tools: ["Python", "SQL", "Power BI"],
-    description: [
-      "Built an interactive Power BI dashboard analyzing 5,000+ IT support tickets",
-      "Engineered features such as resolution time and SLA breach indicators",
-      "Identified trends that supported process optimization and SLA reduction",
-    ],
+    metric: "SLA Reduction",
+    icon: <BarChart3 className="w-5 h-5 text-blue-500" />,
+    description: "Multi-dimensional analysis of 5k+ tickets. Engineered boolean flags for SLA breaches and performed temporal trend analysis to optimize resource allocation.",
     github: "https://github.com/mohanalakshmi/root-cause-analysis",
     demo: "#",
   },
   {
-    title: "Retail Order Data Analysis",
-    tools: ["Python", "SQL", "Streamlit"],
-    description: [
-      "Developed a retail sales analysis dashboard",
-      "Extracted 20+ actionable business insights",
-      "Identified seasonal demand patterns to support inventory planning",
-    ],
-    github: "https://github.com/mohanalakshmi/retail-analysis",
-    demo: "#",
-  },
-  {
-    title: "House Price Prediction (Linear Regression)",
-    tools: ["Python", "scikit-learn"],
-    description: [
-      "Built a regression model with ~85% R²",
-      "Performed data cleaning, EDA, and evaluation using MSE & RMSE",
-      "Translated model results into pricing trend insights",
-    ],
+    title: "House Price Prediction",
+    tools: ["Python", "scikit-learn", "Pandas"],
+    metric: "0.85 R² Score",
+    icon: <LineChart className="w-5 h-5 text-emerald-500" />,
+    description: "Applied OLS regression and feature scaling. Conducted multicollinearity checks (VIF) and residual analysis to ensure model robustness and interpretability.",
     github: "https://github.com/mohanalakshmi/house-price-prediction",
   },
   {
-    title: "Wine Quality Prediction (KNN Regression)",
-    tools: ["Python", "scikit-learn"],
-    description: [
-      "Implemented KNN regression with ~78% R²",
-      "Applied preprocessing and normalization",
-      "Delivered insights for quality control and feature influence",
-    ],
+    title: "Wine Quality Classification",
+    tools: ["Python", "KNN", "Seaborn"],
+    metric: "78% Accuracy",
+    icon: <BrainCircuit className="w-5 h-5 text-purple-500" />,
+    description: "Implemented K-Nearest Neighbors with Min-Max normalization. Used Elbow Method for optimal K-selection and analyzed feature importance for quality variance.",
     github: "https://github.com/mohanalakshmi/wine-quality-prediction",
   },
+  {
+    title: "Retail Order Analysis",
+    tools: ["Python", "SQL", "Streamlit"],
+    metric: "20+ Insights",
+    icon: <Database className="w-5 h-5 text-orange-500" />,
+    description: "ETL pipeline development for retail datasets. Derived seasonal decomposition and cohort analysis to drive inventory planning and customer retention.",
+    github: "https://github.com/mohanalakshmi/retail-analysis",
+    demo: "#",
+  }
 ]
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 px-4 bg-muted/30">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-balance">Projects</h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Demonstrating capability through measurable outcomes
-        </p>
+    <section id="projects" className="py-20 bg-slate-50 dark:bg-zinc-950 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4">
+        
+        {/* Header Section */}
+        <div className="mb-10 flex flex-col items-start gap-2">
+          <Badge variant="outline" className="border-primary/30 text-primary">Portfolio</Badge>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-sans">Featured Projects</h2>
+          <p className="text-muted-foreground hidden md:block">Swipe or scroll to explore my analytical work.</p>
+          <p className="text-sm text-primary font-medium md:hidden animate-pulse">← Swipe to view projects →</p>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {projects.map((project) => (
-            <Card key={project.title} className="p-6 space-y-4 hover:shadow-lg transition-all">
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold text-balance">{project.title}</h3>
+        {/* Carousel Container */}
+        <div className="flex overflow-x-auto pb-8 gap-6 snap-x snap-mandatory scrollbar-hide no-scrollbar">
+          {projects.map((project, index) => (
+            <div 
+              key={index} 
+              className="min-w-[85%] md:min-w-[calc(50%-12px)] lg:min-w-[calc(50%-12px)] snap-center"
+            >
+              <Card className="h-full flex flex-col border-none shadow-sm hover:shadow-xl transition-all duration-300 bg-white dark:bg-zinc-900 overflow-hidden relative group">
+                {/* Visual Highlight */}
+                <div className="h-1.5 w-full bg-muted group-hover:bg-primary transition-colors duration-500" />
+                
+                <div className="p-6 md:p-8 flex flex-col flex-1">
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="p-2.5 bg-slate-100 dark:bg-zinc-800 rounded-xl">
+                      {project.icon}
+                    </div>
+                    <span className="font-mono text-[10px] font-bold px-2 py-1 bg-primary/10 text-primary rounded-full uppercase tracking-tighter">
+                      {project.metric}
+                    </span>
+                  </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {project.tools.map((tool) => (
-                    <Badge key={tool} variant="outline" className="text-xs">
-                      {tool}
-                    </Badge>
-                  ))}
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6 flex-1">
+                    {project.description}
+                  </p>
+
+                  <div className="space-y-6">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tools.map((tool) => (
+                        <span key={tool} className="text-[10px] font-semibold text-slate-500 bg-slate-100 dark:bg-zinc-800 px-2 py-1 rounded">
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center gap-6 pt-2 border-t border-slate-100 dark:border-zinc-800">
+                      <a 
+                        href={project.github} 
+                        target="_blank" 
+                        className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors"
+                      >
+                        <Github className="w-4 h-4" /> Code
+                      </a>
+                      {project.demo && (
+                        <a 
+                          href={project.demo} 
+                          className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4" /> Insights
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                {project.description.map((item, index) => (
-                  <li key={index} className="flex gap-2 leading-relaxed">
-                    <span className="text-primary mt-1.5">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="flex gap-2 pt-2">
-                <Button asChild size="sm" variant="outline" className="gap-2 bg-transparent">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    <Github className="w-4 h-4" />
-                    GitHub
-                  </a>
-                </Button>
-                {project.demo && (
-                  <Button asChild size="sm" variant="outline" className="gap-2 bg-transparent">
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4" />
-                      Demo
-                    </a>
-                  </Button>
-                )}
-              </div>
-            </Card>
+              </Card>
+            </div>
           ))}
         </div>
       </div>
