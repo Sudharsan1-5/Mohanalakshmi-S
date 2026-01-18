@@ -66,7 +66,7 @@ export function Hero() {
           </Button>
           
           <Button asChild size="xl" variant="outline" className="rounded-full px-8 bg-background/50 backdrop-blur-sm border-2 hover:bg-primary/5 transition-all">
-            <a href="/resume.pdf" download>
+            <a href="/resume/Mohanalakshmi-S.pdf" download>
               <Download className="w-4 h-4 mr-2" />
               Get Resume
             </a>

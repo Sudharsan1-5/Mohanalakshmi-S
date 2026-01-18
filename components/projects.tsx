@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Github, ExternalLink, BarChart3, BrainCircuit, Database, LineChart } from "lucide-react"
+import {ExternalLink, BarChart3, BrainCircuit, Database, LineChart } from "lucide-react"
 
 const projects = [
   {
@@ -9,7 +9,7 @@ const projects = [
     metric: "SLA Reduction",
     icon: <BarChart3 className="w-5 h-5 text-blue-500" />,
     description: "Multi-dimensional analysis of 5k+ tickets. Engineered boolean flags for SLA breaches and performed temporal trend analysis to optimize resource allocation.",
-    github: "https://github.com/mohanalakshmi/root-cause-analysis",
+    github: "https://github.com/Monikakuti/Projects/tree/main/Incident_Insight",
     demo: "#",
   },
   {
@@ -18,7 +18,7 @@ const projects = [
     metric: "0.85 R² Score",
     icon: <LineChart className="w-5 h-5 text-emerald-500" />,
     description: "Applied OLS regression and feature scaling. Conducted multicollinearity checks (VIF) and residual analysis to ensure model robustness and interpretability.",
-    github: "https://github.com/mohanalakshmi/house-price-prediction",
+    github: "https://github.com/Monikakuti/MachineLearning/tree/main/Project%26MiniProject/HousePrice_Prediction_LinearRegression",
   },
   {
     title: "Wine Quality Classification",
@@ -26,7 +26,7 @@ const projects = [
     metric: "78% Accuracy",
     icon: <BrainCircuit className="w-5 h-5 text-purple-500" />,
     description: "Implemented K-Nearest Neighbors with Min-Max normalization. Used Elbow Method for optimal K-selection and analyzed feature importance for quality variance.",
-    github: "https://github.com/mohanalakshmi/wine-quality-prediction",
+    github: "https://github.com/Monikakuti/MachineLearning/tree/main/KNN/WineQuality_Prediction_Regression",
   },
   {
     title: "Retail Order Analysis",
@@ -34,7 +34,7 @@ const projects = [
     metric: "20+ Insights",
     icon: <Database className="w-5 h-5 text-orange-500" />,
     description: "ETL pipeline development for retail datasets. Derived seasonal decomposition and cohort analysis to drive inventory planning and customer retention.",
-    github: "https://github.com/mohanalakshmi/retail-analysis",
+    github: "https://github.com/Monikakuti/Retail_Order",
     demo: "#",
   }
 ]
@@ -90,22 +90,16 @@ export function Projects() {
                       ))}
                     </div>
 
-                    <div className="flex items-center gap-6 pt-2 border-t border-slate-100 dark:border-zinc-800">
+                    <div className="pt-2 border-t border-slate-100 dark:border-zinc-800">
                       <a 
                         href={project.github} 
                         target="_blank" 
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors"
                       >
-                        <Github className="w-4 h-4" /> Code
-                      </a>
-                      {project.demo && (
-                        <a 
-                          href={project.demo} 
-                          className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors"
-                        >
+
                           <ExternalLink className="w-4 h-4" /> Insights
                         </a>
-                      )}
                     </div>
                   </div>
                 </div>

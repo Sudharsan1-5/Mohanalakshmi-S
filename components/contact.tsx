@@ -110,7 +110,15 @@ export function Contact() {
           
           <div className="flex gap-6">
             <a href="#projects" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Projects</a>
-            <a href="#experience" className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Resume</a>
+            <a
+              href="/resume/Mohanalakshmi-S.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors"
+            >
+              Resume
+            </a>
+
           </div>
         </footer>
       </div>
