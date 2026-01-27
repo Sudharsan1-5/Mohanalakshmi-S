@@ -60,30 +60,40 @@ export function Hero() {
         </p>
 
         {/* 5. High-Impact CTA Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 pt-6">
-          <Button asChild size="xl" className="rounded-full px-8 shadow-lg shadow-primary/20 hover:scale-105 transition-all">
-            <a href="#projects">Explore Projects</a>
-          </Button>
-          
-          <Button asChild size="xl" variant="outline" className="rounded-full px-8 bg-background/50 backdrop-blur-sm border-2 hover:bg-primary/5 transition-all">
-            <a href="/resume/Mohanalakshmi-S.pdf" download>
-              <Download className="w-4 h-4 mr-2" />
-              Get Resume
-            </a>
-          </Button>
+<div className="flex flex-wrap items-center justify-center gap-4 pt-6">
+  <Button asChild size="xl" className="rounded-full px-8 shadow-lg shadow-primary/20 hover:scale-105 transition-all">
+    <a href="#projects">Explore Projects</a>
+  </Button>
+  
+  <Button
+    asChild
+    size="xl"
+    variant="outline"
+    className="rounded-full px-8 bg-background/50 backdrop-blur-sm border-2 hover:bg-primary/5 transition-all"
+  >
+    <a
+      href="/resume/Mohanalakshmi-S.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Download className="w-4 h-4 mr-2" />
+      View Resume
+    </a>
+  </Button>
 
-          {/* Social Icons with Tooltips */}
-          <div className="flex gap-2 ml-2">
-            {[
-              { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com/in/mohanalakshmi-s-09m" },
-              { icon: <Github className="w-5 h-5" />, href: "https://github.com/Monikakuti" }
-            ].map((social, i) => (
-              <Button key={i} asChild variant="ghost" size="icon" className="rounded-full w-12 h-12 hover:bg-primary/10 hover:text-primary transition-colors">
-                <a href={social.href} target="_blank" rel="noopener noreferrer">{social.icon}</a>
-              </Button>
-            ))}
-          </div>
-        </div>
+  {/* Social Icons with Tooltips */}
+  <div className="flex gap-2 ml-2">
+    {[
+      { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com/in/mohanalakshmi-s-09m" },
+      { icon: <Github className="w-5 h-5" />, href: "https://github.com/Monikakuti" }
+    ].map((social, i) => (
+      <Button key={i} asChild variant="ghost" size="icon" className="rounded-full w-12 h-12 hover:bg-primary/10 hover:text-primary transition-colors">
+        <a href={social.href} target="_blank" rel="noopener noreferrer">{social.icon}</a>
+      </Button>
+    ))}
+  </div>
+</div>
+
 
         {/* 6. Professional Scroll Indicator */}
         <div className="absolute bottom-[-10vh] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
